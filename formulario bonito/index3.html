@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Formulario</title>
+	
+	<script>
+		function validarFormulario(){
+			// Obtener valores de los campos
+			var nombre = document.getElementById("nombre").value;
+			var edad = document.getElementById("edad").value;
+			var provincia = document.getElementById("provincia").value;
+			var fechaNacimiento = document.getElementById("fechaNacimiento").value;
+			var deportesCheckboxes = document.getElementsByName("deportes");
+			var deportesSeleccionados = [];
+
+			// Validar que se ingresaron valores en todos los campos
+			if(nombre.length == 0 || nombre.length > 20){
+				alert("Debe ingresar su nombre (minimo de 5 letras y maximo de 20)");
+				return false;
+			}
+
+			if(edad < 18 || edad > 45){
+				alert("Debe tener entre 18 y 45 años");
+				return false;
+			}
+
+			if(provincia.length == 0){
+				alert("Debe seleccionar una provincia");
+				return false;
+			}
+
+			if(fechaNacimiento.length == 0){
+				alert("Debe ingresar su fecha de nacimiento");
+				return false;
+			}
+
+			for(var i=0; i<deportesCheckboxes.length; i++){
+				if(deportesCheckboxes[i].checked){
+					deportesSeleccionados.push(deportesCheckboxes[i].value);
+				}
+			}
+
+			if(deportesSeleccionados.length == 0){
+				alert("Debe seleccionar al menos un deporte");
+				return false;
+			}
+
+			return true;
+		}
+	</script>
+    <script>
+		function validarFormulario(){
+			// Obtener valores de los campos
+			var nombre = document.getElementById("nombre").value;
+			var edad = document.getElementById("edad").value;
+			var provincia = document.getElementById("provincia").value;
+			var fechaNacimiento = document.getElementById("fechaNacimiento").value;
+			var deportesCheckboxes = document.getElementsByName("deportes");
+			var deportesSeleccionados = [];
+
+			// Validar que se ingresaron valores en todos los campos
+			if(nombre.length == 0 || nombre.length > 20){
+				alert("Debe ingresar su nombre (máximo 20 letras)");
+				return false;
+			}
+
+			if(edad < 18 || edad > 45){
+				alert("Debe tener entre 18 y 45 años");
+				return false;
+			}
+
+			if(provincia.length == 0){
+				alert("Debe seleccionar una provincia");
+				return false;
+			}
+
+			if(fechaNacimiento.length == 0){
+				alert("Debe ingresar su fecha de nacimiento");
+				return false;
+			}
+
+			for(var i=0; i<deportesCheckboxes.length; i++){
+				if(deportesCheckboxes[i].checked){
+					deportesSeleccionados.push(deportesCheckboxes[i].value);
+				}
+			}
+
+			if(deportesSeleccionados.length == 0){
+				alert("Debe seleccionar al menos un deporte");
+				return false;
+			}
+
+			return true;
+		}
+	</script>
+    <style>
+    		body {
+                background-color: #8C27AC;
+                font-family: Arial, sans-serif;
+            }
+            h1 {
+			color: white;
+			margin-top: 50px;
+			text-align: center;
+		}
+        form {
+			background-color: white;
+			padding: 70px;
+			border-radius: 100px;
+			box-shadow: 0 0 500px rgba(0,0,0,0.5);
+			/*display: flex;
+			flex-direction: column;*/
+			align-items: left;
+            
+			margin-top: 30px;
+			max-width: 500px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+        label {
+			font-size: 18px;
+			margin-top: 20px;
+			margin-bottom: 10px;
+		}
+        input[type="text"],
+		input[type="number"],
+		input[type="date"],
+		/*select {
+			width: 100%;
+			font-size: 20px;
+			padding: 10px;
+			border-radius: 5px;
+			border: none;
+			box-shadow: 0 0 10px rgba(0,0,0,0.3);
+		}*/
+
+        button {
+			background-color: #AE52D4;
+			color: white;
+			font-size: 20px;
+			padding: 10px;
+			border-radius: 5px;
+			border: none;
+			box-shadow: 0 0 10px rgba(0,0,0,0.3);
+			cursor: pointer;
+			margin-top: 20px;
+		}
+
+		button:hover,
+		input[type="reset"]:hover {
+			background-color: #9B46B9;
+		}
+
+		input[type="reset"] {
+			background-color: white;
+			color: #AE52D4;
+			font-size: 20px;
+			padding: 10px;
+			border-radius: 5px;
+			border: none;
+			box-shadow: 0 0 10px rgba(0,0,0,0.3);
+			cursor: pointer;
+			margin-top: 20px;
+			margin-left: 10px;
+		}
+        button {
+			background-color: #AE52D4;
+			color: white;
+			font-size: 20px;
+			padding: 10px;
+			border-radius: 5px;
+			border: none;
+			box-shadow: 0 0 10px rgba(0,0,0,0.3);
+			cursor: pointer;
+			margin-top: 20px;
+		}
+
+		
+        input[type="submit"] {
+			background-color: white;
+			color: #AE52D4;
+			font-size: 20px;
+			padding: 10px;
+			border-radius: 5px;
+			border: none;
+			box-shadow: 0 0 10px rgba(0,0,0,0.3);
+			cursor: pointer;
+			margin-top: 20px;
+			margin-left: 10px;
+        }
+		
+    </style>        
+</head>
+<body>
+	<title>Formulario</title>
+	
+</head>
+<body>
+	<h1>Formulario</h1>
+	<form action="#" method="post" onsubmit="return validarFormulario()">
+		<label for="nombre">Nombre:</label>
+		<input type="text" id="nombre" name="nombre" minlength="5"><br>
+
+		<label for="edad">Edad:</label>
+    
+		<input type="number" id="edad" name="edad" min="18" max="45"><br><br>
+
+		<label for="provincia">Provincia:</label>
+		<select id="provincia" name="provincia">
+		  <option value=""></option>
+		  <option value="Buenos Aires">Buenos Aires</option>
+		  <option value="Córdoba">Córdoba</option>
+		  <option value="Santa Fe">Santa Fe</option>
+		  <option value="Mendoza">Mendoza</option>
+		  <option value="Chubut">Chubut</option>
+		  <option value="Río Negro">Río Negro</option>
+		  <option value="Tierra del Fuego">Tierra del Fuego</option>
+		</select><br>
+
+		<label for="fechaNacimiento">Fecha de Nacimiento:</label>
+		<input type="date" id="fechaNacimiento" name="fechaNacimiento"><br><br>
+
+		<label>Deportes:</label><br><br>
+
+		<input type="checkbox" id="futbol" name="deportes" value="futbol">
+		<label for="futbol">Fútbol</label>
+
+		<input type="checkbox" id="tenis" name="deportes" value="tenis">
+		<label for="tenis">Tenis</label>
+
+		<input type="checkbox" id="basquet" name="deportes" value="basquet">
+		<label for="basquet">Básquet</label>
+
+		<input type="checkbox" id="natacion" name="deportes" value="natacion">
+		<label for="natacion">Natación</label>
+
+		<input type="checkbox" id="voley" name="deportes" value="voley">
+    
+		<label for="voley">Vóley</label><br> <br>
+
+        <label>Selecione Sexo:</label><br><br>
+
+        <input type="radio" id="masculino" name="sexo" value="masculino" checked>
+     <label for="masculino">Masculino</label>
+     <input type="radio" id="femenino" name="sexo" value="femenino">
+     <label for="femenino">Femenino<Br><br>
+
+		<input type="submit" value="Enviar">
+		<input type="reset" value="Resetear">
+	</form>
+</body>
+</html>
